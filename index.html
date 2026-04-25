@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -31,12 +31,11 @@
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-size: 18px;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      font-variation-settings: "opsz" 14;
       overflow-x: hidden;
     }
 
@@ -57,25 +56,24 @@
     }
 
     .mark {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 600;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 44px;
+      letter-spacing: -0.02em;
       color: var(--ink);
     }
 
     .topbar-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-dim);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink-soft);
     }
 
     @media (max-width: 700px) {
       .topbar { padding: 20px 24px; }
       .topbar-meta { display: none; }
+      .mark { font-size: 32px; }
     }
 
     /* ===== HERO ===== */
@@ -114,24 +112,23 @@
     }
 
     .hero h1 {
-      font-family: 'Fraunces', serif;
-      font-weight: 400;
-      font-size: clamp(56px, 9vw, 132px);
-      line-height: 0.92;
-      letter-spacing: -0.035em;
-      font-variation-settings: "opsz" 144;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: clamp(40px, 6vw, 80px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
       color: var(--ink);
       margin-bottom: 0;
     }
 
     .hero h1 em {
-      font-style: italic;
-      font-weight: 300;
+      font-style: normal;
+      font-weight: 700;
       color: var(--accent);
     }
 
     .hero-sub {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-size: clamp(24px, 2.4vw, 28px);
       line-height: 1.3;
       color: var(--ink-soft);
@@ -162,7 +159,7 @@
     }
 
     .hero-meta-item strong {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 500;
       font-size: 22px;
       letter-spacing: -0.01em;
@@ -225,15 +222,13 @@
     }
 
     .scene blockquote {
-      font-family: 'Fraunces', serif;
-      font-weight: 300;
-      font-size: clamp(28px, 4.2vw, 56px);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      font-variation-settings: "opsz" 144;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.4;
+      letter-spacing: -0.005em;
       color: var(--paper);
       max-width: 1000px;
-      font-style: italic;
     }
 
     .scene blockquote em {
@@ -305,14 +300,13 @@
     }
 
     .section-headline {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 400;
       font-size: clamp(40px, 6vw, 80px);
       line-height: 0.95;
       letter-spacing: -0.025em;
       color: var(--ink);
       margin-bottom: 64px;
-      font-variation-settings: "opsz" 144;
     }
 
     .section-headline em {
@@ -330,7 +324,7 @@
     }
 
     .check-list li {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 400;
       font-size: clamp(20px, 2.2vw, 26px);
       line-height: 1.4;
@@ -352,9 +346,9 @@
       left: 0;
       top: 32px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       color: var(--accent);
     }
 
@@ -371,7 +365,7 @@
     @media (max-width: 700px) {
       .checklist { padding: 72px 24px; }
       .check-list li { padding: 22px 0 22px 44px; font-size: 18px; }
-      .check-list li::before { top: 26px; font-size: 11px; }
+      .check-list li::before { top: 26px; font-size: 14px; }
       .section-headline { margin-bottom: 48px; }
     }
 
@@ -408,16 +402,16 @@
 
     .offer-tag {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-size: 16px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 24px;
     }
 
     .offer-name {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 500;
       font-size: 32px;
       line-height: 1.1;
@@ -443,23 +437,23 @@
     }
 
     .offer-price-num {
-      font-family: 'Fraunces', serif;
-      font-weight: 500;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
       font-size: 56px;
       line-height: 1;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       color: var(--accent);
-      font-variation-settings: "opsz" 144;
     }
 
     .offer-price-unit {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.1em;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--ink-soft);
-      max-width: 140px;
-      line-height: 1.4;
+      color: var(--ink);
+      max-width: 180px;
+      line-height: 1.3;
     }
 
     .offerings-note {
@@ -469,7 +463,7 @@
       color: var(--ink-soft);
       max-width: 720px;
       font-style: italic;
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 300;
     }
 
@@ -511,7 +505,7 @@
     }
 
     .topics-intro {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-size: clamp(19px, 2vw, 23px);
       line-height: 1.5;
       color: rgba(250, 246, 237, 0.75);
@@ -521,64 +515,104 @@
       font-weight: 300;
     }
 
-    .topics-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 56px 80px;
-    }
-
-    .topic-block {
+    .topic-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
       border-top: 1px solid rgba(250, 246, 237, 0.18);
-      padding-top: 32px;
     }
 
-    .topic-block-num {
+    .topic-item {
+      border-bottom: 1px solid rgba(250, 246, 237, 0.18);
+    }
+
+    .topic-summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 32px 0;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      transition: padding-left 0.3s ease;
+    }
+
+    .topic-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .topic-item[open] .topic-summary {
+      padding-left: 12px;
+    }
+
+    .topic-num {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.1em;
       color: var(--accent-warm);
-      margin-bottom: 16px;
+      min-width: 40px;
     }
 
-    .topic-block h3 {
-      font-family: 'Fraunces', serif;
+    .topic-title {
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 400;
-      font-size: 28px;
-      line-height: 1.15;
+      font-size: clamp(24px, 3.2vw, 38px);
+      line-height: 1.1;
       letter-spacing: -0.02em;
       color: var(--paper);
-      margin-bottom: 28px;
+      flex: 1;
     }
 
-    .topic-block ul {
+    .topic-toggle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--accent-warm);
+      transition: transform 0.3s ease;
+      width: 32px;
+      text-align: center;
+    }
+
+    .topic-item[open] .topic-toggle {
+      transform: rotate(45deg);
+    }
+
+    .topic-body {
+      padding: 8px 0 40px 72px;
+    }
+
+    .topic-body ul {
       list-style: none;
     }
 
-    .topic-block li {
-      font-size: 16px;
-      line-height: 1.5;
-      color: rgba(250, 246, 237, 0.78);
-      padding: 14px 0;
+    .topic-body li {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1.55;
+      color: rgba(250, 246, 237, 0.85);
+      padding: 12px 0;
       border-bottom: 1px solid rgba(250, 246, 237, 0.08);
     }
 
-    .topic-block li:last-child { border-bottom: none; }
+    .topic-body li:last-child { border-bottom: none; }
 
-    .topic-block .qualifier {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
+    .topic-body .qualifier {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
       color: var(--accent-warm);
       margin-bottom: 16px;
-      font-style: normal;
+      font-style: italic;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 700px) {
       .topics { padding: 72px 24px; }
-      .topics-grid { grid-template-columns: 1fr; gap: 40px; }
-      .topics-intro { margin-bottom: 56px; }
-      .topic-block h3 { font-size: 23px; }
+      .topics-intro { margin-bottom: 48px; }
+      .topic-summary { gap: 20px; padding: 24px 0; }
+      .topic-num { font-size: 16px; min-width: 32px; }
+      .topic-toggle { font-size: 24px; width: 24px; }
+      .topic-body { padding-left: 0; padding-bottom: 32px; }
+      .topic-body li { font-size: 16px; }
     }
 
     /* ===== ABOUT ===== */
@@ -606,14 +640,13 @@
     }
 
     .about-name {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 500;
       font-size: clamp(36px, 5vw, 64px);
       line-height: 0.95;
       letter-spacing: -0.03em;
       color: var(--ink);
       margin-top: 16px;
-      font-variation-settings: "opsz" 144;
     }
 
     .about-stats {
@@ -632,13 +665,12 @@
     }
 
     .about-stat-num {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 500;
       font-size: 36px;
       line-height: 1;
       letter-spacing: -0.02em;
       color: var(--accent);
-      font-variation-settings: "opsz" 144;
     }
 
     .about-stat-label {
@@ -650,8 +682,36 @@
       line-height: 1.4;
     }
 
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .about-photo:hover img {
+      transform: scale(1.02);
+    }
+
+    .about-photo-caption {
+      margin-top: 16px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+
     .about-bio {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-size: 19px;
       line-height: 1.6;
       color: var(--ink);
@@ -710,14 +770,13 @@
     }
 
     .cta h2 {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-weight: 400;
       font-size: clamp(42px, 6.5vw, 88px);
       line-height: 1;
       letter-spacing: -0.03em;
       color: var(--paper);
       margin-bottom: 32px;
-      font-variation-settings: "opsz" 144;
     }
 
     .cta h2 em {
@@ -727,7 +786,7 @@
     }
 
     .cta-text {
-      font-family: 'Fraunces', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-size: clamp(21px, 1.8vw, 21px);
       line-height: 1.55;
       color: rgba(250, 246, 237, 0.75);
@@ -760,11 +819,10 @@
 
     .cta-or {
       margin-top: 32px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      color: rgba(250, 246, 237, 0.45);
-      text-transform: uppercase;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: rgba(250, 246, 237, 0.7);
     }
 
     @media (max-width: 700px) {
@@ -776,29 +834,31 @@
     /* ===== FOOTER ===== */
     footer {
       background: var(--night);
-      color: rgba(250, 246, 237, 0.5);
-      padding: 32px 40px;
+      color: rgba(250, 246, 237, 0.7);
+      padding: 40px;
       border-top: 1px solid rgba(250, 246, 237, 0.1);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 16px;
     }
 
     footer a {
-      color: rgba(250, 246, 237, 0.6);
+      color: var(--accent-warm);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
+      border-bottom: 1px solid rgba(212, 102, 31, 0.4);
       transition: border-color 0.2s, color 0.2s;
+      font-weight: 600;
     }
 
     footer a:hover {
-      color: var(--accent-warm);
-      border-bottom-color: var(--accent-warm);
+      color: var(--paper);
+      border-bottom-color: var(--paper);
     }
 
     @media (max-width: 700px) {
@@ -817,23 +877,8 @@
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-eyebrow">For R&amp;D leaders in regulated industries</div>
-      <h1>The AI mandate is real.</h1>
+      <h1>Live artificial intelligence training for medical device R&amp;D teams.</h1>
       <p class="hero-sub">Practical, live AI training for the tools your company actually allows.</p>
-
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <strong>30 yrs</strong>
-          <span>Safety-critical software</span>
-        </div>
-        <div class="hero-meta-item">
-          <strong>IEC 62304</strong>
-          <span>AAMI committee, voting member</span>
-        </div>
-        <div class="hero-meta-item">
-          <strong>Live only</strong>
-          <span>1:1 and small-group sessions</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -848,7 +893,6 @@
         <p>Copilot is crippled in their environment, locked down by IT, with no general access to Claude, ChatGPT, nor OpenClaw. Features most users don't know exist, and nobody taught them how to work effectively with AI in the first place: when to use it, when not to, how to catch the confident-sounding wrong answer before it becomes a problem.</p>
         <p>Multiply that by every senior person in your org and you have a pretty good picture of where most of the unrealized value is hiding.</p>
       </div>
-      <div class="scene-tag">→ That gap is where I work.</div>
     </div>
   </section>
 
@@ -907,50 +951,72 @@
       <h2 class="section-headline">A working <em>curriculum.</em></h2>
       <p class="topics-intro">Sessions are tailored to what your team actually needs. The landscape is moving, so this list is updated continuously.</p>
 
-      <div class="topics-grid">
-        <div class="topic-block">
-          <div class="topic-block-num">— I —</div>
-          <h3>Practical AI skills</h3>
-          <ul>
-            <li>What works today, what's hype, and how to tell the difference, with live side-by-side comparisons</li>
-            <li>AI-assisted technical writing in regulated environments, and where AI can hallucinate dangerously</li>
-            <li>AI for engineering leadership: synthesizing project status, spotting schedule risks, preparing for design reviews</li>
-          </ul>
-        </div>
+      <div class="topic-accordion">
 
-        <div class="topic-block">
-          <div class="topic-block-num">— II —</div>
-          <h3>The regulated product lifecycle</h3>
-          <ul>
-            <li>AI and IEC 62304: what's possible, what's permissible, what's coming</li>
-            <li>Accelerating DHF documentation without compromising compliance</li>
-            <li>AI for risk management (ISO 14971): hazard analysis, FMEA, and the new risks AI itself introduces</li>
-            <li>Evaluating AI/ML-enabled medical devices: SaMD classification, FDA guidance, strategic implications</li>
-          </ul>
-        </div>
+        <details class="topic-item">
+          <summary class="topic-summary">
+            <span class="topic-num">— I —</span>
+            <span class="topic-title">Practical AI skills</span>
+            <span class="topic-toggle">+</span>
+          </summary>
+          <div class="topic-body">
+            <ul>
+              <li>What works today, what's hype, and how to tell the difference, with live side-by-side comparisons</li>
+              <li>AI-assisted technical writing in regulated environments, and where AI can hallucinate dangerously</li>
+              <li>AI for engineering leadership: synthesizing project status, spotting schedule risks, preparing for design reviews</li>
+            </ul>
+          </div>
+        </details>
 
-        <div class="topic-block">
-          <div class="topic-block-num">— III —</div>
-          <h3>Agentic AI for software teams</h3>
-          <div class="qualifier">For organizations with broader AI access than Copilot alone</div>
-          <ul>
-            <li>Using agentic AI to write, review, and refactor production code in regulated codebases</li>
-            <li>AI-generated backlog items: from user stories to acceptance criteria</li>
-            <li>BDD test automation with AI: generating and maintaining behavior-driven test suites</li>
-            <li>Building a complete application by prompting an AI agent — a multi-session, hands-on walkthrough</li>
-            <li>Rethinking the dev team: how agentic AI shifts the balance toward prompt engineering and code review</li>
-          </ul>
-        </div>
+        <details class="topic-item">
+          <summary class="topic-summary">
+            <span class="topic-num">— II —</span>
+            <span class="topic-title">The regulated product lifecycle</span>
+            <span class="topic-toggle">+</span>
+          </summary>
+          <div class="topic-body">
+            <ul>
+              <li>AI and IEC 62304: what's possible, what's permissible, what's coming</li>
+              <li>Accelerating DHF documentation without compromising compliance</li>
+              <li>AI for risk management (ISO 14971): hazard analysis, FMEA, and the new risks AI itself introduces</li>
+              <li>Evaluating AI/ML-enabled medical devices: SaMD classification, FDA guidance, strategic implications</li>
+            </ul>
+          </div>
+        </details>
 
-        <div class="topic-block">
-          <div class="topic-block-num">— IV —</div>
-          <h3>Strategic AI leadership</h3>
-          <ul>
-            <li>Rolling out secure AI tools to your engineering team without creating a compliance nightmare</li>
-            <li>AI vendor evaluation: cutting through pitch decks and avoiding a six-month POC that goes nowhere</li>
-            <li>A capability maturity map of what works now, what's emerging, and what's still vaporware</li>
-          </ul>
-        </div>
+        <details class="topic-item">
+          <summary class="topic-summary">
+            <span class="topic-num">— III —</span>
+            <span class="topic-title">Agentic AI for software teams</span>
+            <span class="topic-toggle">+</span>
+          </summary>
+          <div class="topic-body">
+            <div class="qualifier">For organizations with broader AI access than Copilot alone</div>
+            <ul>
+              <li>Using agentic AI to write, review, and refactor production code in regulated codebases</li>
+              <li>AI-generated backlog items: from user stories to acceptance criteria</li>
+              <li>BDD test automation with AI: generating and maintaining behavior-driven test suites</li>
+              <li>Building a complete application by prompting an AI agent, a multi-session, hands-on walkthrough</li>
+              <li>Rethinking the dev team: how agentic AI shifts the balance toward prompt engineering and code review</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="topic-item">
+          <summary class="topic-summary">
+            <span class="topic-num">— IV —</span>
+            <span class="topic-title">Strategic AI leadership</span>
+            <span class="topic-toggle">+</span>
+          </summary>
+          <div class="topic-body">
+            <ul>
+              <li>Rolling out secure AI tools to your engineering team without creating a compliance nightmare</li>
+              <li>AI vendor evaluation: cutting through pitch decks and avoiding a six-month POC that goes nowhere</li>
+              <li>A capability maturity map of what works now, what's emerging, and what's still vaporware</li>
+            </ul>
+          </div>
+        </details>
+
       </div>
     </div>
   </section>
@@ -959,20 +1025,13 @@
   <section class="about">
     <div class="about-inner">
       <div>
-        <div class="about-label">— About</div>
-        <div class="about-name">Mike Luloh</div>
-        <div class="about-stats">
-          <div class="about-stat">
-            <div class="about-stat-num">30</div>
-            <div class="about-stat-label">Years building safety-<br>critical medical device<br>software</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-num">62304</div>
-            <div class="about-stat-label">AAMI <br>voting member</div>
-          </div>
+        <div class="about-photo">
+          <img src="mike.png" alt="Mike Luloh">
         </div>
+        <div class="about-photo-caption">— Mike Luloh, Southlake TX</div>
       </div>
       <div class="about-bio">
+        <div class="about-label" style="margin-bottom: 16px;">— About</div>
         <p>Thirty years building safety-critical medical device software. My work at Alcon includes <strong>real-time laser control</strong> for LASIK surgical instruments and <strong>novel methods for high-speed optical metrology of intraocular lenses</strong>.</p>
         <p>I also serve as a voting member on the AAMI committee that maintains IEC 62304, the international standard for medical device software.</p>
         <p>I've spent the last three years figuring out where AI actually fits in regulated product development, what the real risks are, and how to implement it without creating compliance exposure. That's what I teach.</p>
