@@ -8,19 +8,24 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f6f3ee;
-      --ink: #14130f;
-      --ink-soft: #4a4740;
-      --rule: #d9d3c6;
-      --accent: #8a2a1f;
+      --bg: #f4efe6;
+      --bg-alt: #ebe4d4;
+      --ink: #100f0c;
+      --ink-soft: #45423a;
+      --ink-dim: #76716a;
+      --rule: #d2cab9;
+      --accent: #b8341e;
+      --accent-warm: #d4661f;
+      --paper: #faf6ed;
+      --night: #100f0c;
+      --night-soft: #1d1b16;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -28,235 +33,968 @@
       color: var(--ink);
       font-family: 'Fraunces', Georgia, serif;
       font-size: 18px;
-      line-height: 1.6;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-variation-settings: "opsz" 14;
+      overflow-x: hidden;
     }
 
-    .container {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 80px 32px 120px;
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
     }
 
-    @media (max-width: 600px) {
-      .container { padding: 48px 24px 80px; }
-      body { font-size: 17px; }
-    }
-
-    header {
-      margin-bottom: 64px;
-      padding-bottom: 32px;
+    /* ===== TOP BAR ===== */
+    .topbar {
+      position: relative;
+      z-index: 10;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid var(--rule);
     }
 
-    .eyebrow {
+    .mark {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-family: 'Fraunces', serif;
-      font-weight: 500;
-      font-size: 44px;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      font-variation-settings: "opsz" 144;
-      margin-bottom: 4px;
-    }
-
-    .tagline {
-      font-size: 22px;
-      line-height: 1.35;
-      color: var(--ink-soft);
-      font-weight: 400;
-      font-style: italic;
-      margin-top: 16px;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 34px; }
-      .tagline { font-size: 19px; }
-    }
-
-    section {
-      margin-bottom: 56px;
-    }
-
-    h2 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 13px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .topbar-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+
+    @media (max-width: 700px) {
+      .topbar { padding: 20px 24px; }
+      .topbar-meta { display: none; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      padding: 80px 40px 100px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(56px, 9vw, 132px);
+      line-height: 0.92;
+      letter-spacing: -0.035em;
+      font-variation-settings: "opsz" 144;
+      color: var(--ink);
+      margin-bottom: 0;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.3;
       color: var(--ink-soft);
+      max-width: 720px;
+      margin-top: 32px;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero-meta-item strong {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      text-transform: none;
+      color: var(--ink);
+    }
+
+    @media (max-width: 700px) {
+      .hero { padding: 48px 24px 64px; }
+      .hero-meta { gap: 28px; margin-top: 48px; padding-top: 24px; }
+      .hero-meta-item strong { font-size: 18px; }
+    }
+
+    /* ===== PULL QUOTE: THE SCENE ===== */
+    .scene {
+      background: var(--night);
+      color: var(--paper);
+      padding: 120px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scene::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .scene-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .scene-mark {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scene-mark::before {
+      content: '01';
+      font-weight: 600;
+    }
+
+    .scene-mark span {
+      width: 32px;
+      height: 1px;
+      background: var(--accent-warm);
+    }
+
+    .scene blockquote {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(28px, 4.2vw, 56px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      font-variation-settings: "opsz" 144;
+      color: var(--paper);
+      max-width: 1000px;
+      font-style: italic;
+    }
+
+    .scene blockquote em {
+      color: var(--accent-warm);
+      font-style: italic;
+    }
+
+    .scene-followup {
+      margin-top: 64px;
+      max-width: 720px;
+      font-size: 19px;
+      line-height: 1.6;
+      color: rgba(250, 246, 237, 0.78);
+      font-weight: 300;
+    }
+
+    .scene-followup p + p {
+      margin-top: 20px;
+    }
+
+    .scene-tag {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(250, 246, 237, 0.15);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+    }
+
+    @media (max-width: 700px) {
+      .scene { padding: 72px 24px; }
+      .scene-followup { font-size: 17px; margin-top: 40px; }
+      .scene-tag { margin-top: 40px; padding-top: 24px; }
+    }
+
+    /* ===== CHECKLIST ===== */
+    .checklist {
+      background: var(--bg-alt);
+      padding: 120px 40px;
+    }
+
+    .checklist-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-mark {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-mark .num {
+      font-weight: 600;
+    }
+
+    .section-mark span.line {
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-headline {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(40px, 6vw, 80px);
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 64px;
+      font-variation-settings: "opsz" 144;
+    }
+
+    .section-headline em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      max-width: 900px;
+    }
+
+    .check-list li {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      padding: 28px 0 28px 56px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      counter-increment: check;
+    }
+
+    .check-list li:first-child {
+      border-top: 1px solid var(--rule);
+    }
+
+    .check-list li::before {
+      content: counter(check, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .check-list {
+      counter-reset: check;
+    }
+
+    .check-list li em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    @media (max-width: 700px) {
+      .checklist { padding: 72px 24px; }
+      .check-list li { padding: 22px 0 22px 44px; font-size: 18px; }
+      .check-list li::before { top: 26px; font-size: 11px; }
+      .section-headline { margin-bottom: 48px; }
+    }
+
+    /* ===== OFFERINGS ===== */
+    .offerings {
+      background: var(--bg);
+      padding: 120px 40px;
+    }
+
+    .offerings-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 64px;
+    }
+
+    .offer-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 48px 40px;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .offer-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .offer-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
       margin-bottom: 20px;
     }
 
-    p {
-      margin-bottom: 18px;
+    .offer-desc {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-bottom: 40px;
+      min-height: 110px;
     }
 
-    p:last-child { margin-bottom: 0; }
-
-    strong {
-      font-weight: 600;
-      color: var(--ink);
+    .offer-price {
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
     }
 
-    .lead {
-      font-size: 20px;
+    .offer-price-num {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 56px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      font-variation-settings: "opsz" 144;
+    }
+
+    .offer-price-unit {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      max-width: 140px;
+      line-height: 1.4;
+    }
+
+    .offerings-note {
+      margin-top: 56px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 720px;
+      font-style: italic;
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+    }
+
+    @media (max-width: 800px) {
+      .offerings { padding: 72px 24px; }
+      .offerings-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
+      .offer-card { padding: 36px 28px; }
+      .offer-name { font-size: 26px; }
+      .offer-desc { min-height: auto; margin-bottom: 28px; }
+      .offer-price-num { font-size: 44px; }
+    }
+
+    /* ===== TOPICS ===== */
+    .topics {
+      background: var(--night-soft);
+      color: var(--paper);
+      padding: 120px 40px;
+    }
+
+    .topics-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .topics .section-mark {
+      color: var(--accent-warm);
+    }
+
+    .topics .section-mark span.line {
+      background: var(--accent-warm);
+    }
+
+    .topics .section-headline {
+      color: var(--paper);
+    }
+
+    .topics .section-headline em {
+      color: var(--accent-warm);
+    }
+
+    .topics-intro {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(19px, 2vw, 23px);
       line-height: 1.5;
-      color: var(--ink);
+      color: rgba(250, 246, 237, 0.75);
+      max-width: 720px;
+      margin-bottom: 80px;
+      font-style: italic;
+      font-weight: 300;
     }
 
-    .offering {
-      border-left: 2px solid var(--rule);
-      padding-left: 20px;
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 56px 80px;
+    }
+
+    .topic-block {
+      border-top: 1px solid rgba(250, 246, 237, 0.18);
+      padding-top: 32px;
+    }
+
+    .topic-block-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: var(--accent-warm);
+      margin-bottom: 16px;
+    }
+
+    .topic-block h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--paper);
       margin-bottom: 28px;
     }
 
-    .offering-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 8px;
-      letter-spacing: 0.02em;
+    .topic-block ul {
+      list-style: none;
     }
 
-    .offering-price {
+    .topic-block li {
+      font-size: 16px;
+      line-height: 1.5;
+      color: rgba(250, 246, 237, 0.78);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(250, 246, 237, 0.08);
+    }
+
+    .topic-block li:last-child { border-bottom: none; }
+
+    .topic-block .qualifier {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--accent-warm);
+      margin-bottom: 16px;
+      font-style: normal;
+    }
+
+    @media (max-width: 800px) {
+      .topics { padding: 72px 24px; }
+      .topics-grid { grid-template-columns: 1fr; gap: 40px; }
+      .topics-intro { margin-bottom: 56px; }
+      .topic-block h3 { font-size: 23px; }
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--bg-alt);
+      padding: 120px 40px;
+    }
+
+    .about-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: var(--accent);
-      margin-top: 8px;
-      letter-spacing: 0.02em;
     }
 
-    .contact {
-      margin-top: 72px;
+    .about-name {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-top: 16px;
+      font-variation-settings: "opsz" 144;
+    }
+
+    .about-stats {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
       padding-top: 32px;
       border-top: 1px solid var(--rule);
     }
 
-    a {
+    .about-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .about-stat-num {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -0.02em;
       color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
-      transition: opacity 0.2s;
+      font-variation-settings: "opsz" 144;
     }
 
-    a:hover {
-      opacity: 0.7;
-    }
-
-    .email {
+    .about-stat-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 17px;
-      display: inline-block;
-      margin-top: 8px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      line-height: 1.4;
     }
 
-    footer {
-      margin-top: 80px;
-      padding-top: 24px;
-      border-top: 1px solid var(--rule);
+    .about-bio {
+      font-family: 'Fraunces', serif;
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .about-bio p + p {
+      margin-top: 24px;
+    }
+
+    .about-bio strong {
+      font-weight: 600;
+    }
+
+    @media (max-width: 800px) {
+      .about { padding: 72px 24px; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-bio { font-size: 17px; }
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: var(--night);
+      color: var(--paper);
+      padding: 140px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(212, 102, 31, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .cta-mark {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 32px;
+    }
+
+    .cta h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(42px, 6.5vw, 88px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--paper);
+      margin-bottom: 32px;
+      font-variation-settings: "opsz" 144;
+    }
+
+    .cta h2 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent-warm);
+    }
+
+    .cta-text {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(18px, 1.8vw, 21px);
+      line-height: 1.55;
+      color: rgba(250, 246, 237, 0.75);
+      max-width: 580px;
+      margin: 0 auto 56px;
+      font-weight: 300;
+    }
+
+    .cta-button {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--paper);
+      background: var(--accent);
+      padding: 22px 40px;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .cta-button:hover {
+      background: var(--accent-warm);
+      border-color: var(--accent-warm);
+      transform: translateY(-2px);
+    }
+
+    .cta-or {
+      margin-top: 32px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
-      color: var(--ink-soft);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.12em;
+      color: rgba(250, 246, 237, 0.45);
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 700px) {
+      .cta { padding: 80px 24px; }
+      .cta-text { margin-bottom: 40px; }
+      .cta-button { padding: 18px 32px; font-size: 14px; }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--night);
+      color: rgba(250, 246, 237, 0.5);
+      padding: 32px 40px;
+      border-top: 1px solid rgba(250, 246, 237, 0.1);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
     }
 
     footer a {
-      color: var(--ink-soft);
-      border-bottom-color: var(--rule);
+      color: rgba(250, 246, 237, 0.6);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    footer a:hover {
+      color: var(--accent-warm);
+      border-bottom-color: var(--accent-warm);
     }
 
-    header, section, .contact, footer {
-      animation: fadeIn 0.6s ease-out backwards;
+    @media (max-width: 700px) {
+      footer { padding: 24px; }
     }
-
-    header { animation-delay: 0s; }
-    section:nth-of-type(1) { animation-delay: 0.1s; }
-    section:nth-of-type(2) { animation-delay: 0.2s; }
-    section:nth-of-type(3) { animation-delay: 0.3s; }
-    section:nth-of-type(4) { animation-delay: 0.4s; }
-    .contact { animation-delay: 0.5s; }
-    footer { animation-delay: 0.6s; }
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <header>
-      <div class="eyebrow">Mike Luloh</div>
-      <h1>AI training for R&amp;D leaders in regulated industries.</h1>
-      <p class="tagline">Practical skills for the tools your company actually allows.</p>
-    </header>
-
-    <section>
-      <h2>The gap</h2>
-      <p class="lead">Picture the senior engineer on your team with 20 years' experience. Right now they're quietly avoiding Copilot because the one time they tried it, the output was wrong in a way they couldn't trust. So they went back to doing things the way they always have.</p>
-      <p>It isn't one thing. Copilot is crippled in their environment — locked down by IT, no Claude, no ChatGPT, features most users don't know exist. And nobody taught them how to work effectively with AI in the first place — when to use it, when not to, how to catch the confident-sounding wrong answer before it becomes a problem.</p>
-      <p>Multiply that by every senior person in your org and you have a pretty good picture of where most of the unrealized value is hiding.</p>
-      <p>That gap — between the AI mandate and the reality on the ground — is where I work.</p>
-    </section>
-
-    <section>
-      <h2>What I offer</h2>
-
-      <div class="offering">
-        <div class="offering-label">1:1 sessions</div>
-        <p>For directors and senior engineers who want to build AI fluency or think through their own strategy. Live, one hour, billed by the session. No minimum commitment.</p>
-        <div class="offering-price">$250 per hour</div>
-      </div>
-
-      <div class="offering">
-        <div class="offering-label">Small-group cohort sessions</div>
-        <p>Live, two hours, typically four to eight people. Good for directors who want to train a team or for peers who want to learn together.</p>
-        <div class="offering-price">$150 per person per session</div>
-      </div>
-
-      <p style="margin-top: 24px; color: var(--ink-soft); font-size: 16px;">All sessions are live. Nothing is pre-recorded. You ask questions, we work through your actual problems, you leave with something you can use Monday.</p>
-    </section>
-
-    <section>
-      <h2>Who this is for</h2>
-      <p>R&amp;D directors and senior engineers at FDA-regulated companies — medical devices, pharma, life sciences.</p>
-      <p>You're under pressure to show AI fluency. Your IT department has locked you into Microsoft Copilot. Your team is making it work at the margins and not much more. You don't need an AI evangelist. You need someone who knows what your environment actually looks like.</p>
-    </section>
-
-    <section>
-      <h2>About me</h2>
-      <p>30 years building safety-critical medical device software. My work at Alcon includes real-time laser shot-pattern control for LASIK surgical instruments and novel vibration-cancellation methods for high-speed optical metrology of intraocular lenses — systems still in production use today. I also serve as a voting member on the AAMI SM/WG 01 committee that maintains IEC 62304, the international standard for medical device software.</p>
-      <p>I'm not an AI researcher. I'm an engineer who has spent the last three years figuring out where AI actually fits in regulated product development, what the real risks are, and how to implement it without creating compliance exposure. That's what I teach.</p>
-    </section>
-
-    <div class="contact">
-      <h2>Get in touch</h2>
-      <p>Tell me a bit about your team and what you're trying to solve. I'll respond within a day or two.</p>
-      <a href="mailto:mike@luloh.com" class="email">mike@luloh.com</a>
-    </div>
-
-    <footer>
-      <span>&copy; 2026 Mike Luloh</span>
-      <a href="https://linkedin.com/in/luloh">LinkedIn</a>
-    </footer>
-
+  <div class="topbar">
+    <div class="mark">Mike Luloh</div>
+    <div class="topbar-meta">Live AI training · Est. 2026</div>
   </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-eyebrow">For R&amp;D leaders in regulated industries</div>
+      <h1>The AI mandate is real.</h1>
+      <p class="hero-sub">Practical, live AI training for the tools your company actually allows.</p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <strong>30 yrs</strong>
+          <span>Safety-critical software</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>IEC 62304</strong>
+          <span>AAMI committee, voting member</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>Live only</strong>
+          <span>1:1 and small-group sessions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE / PULL QUOTE -->
+  <section class="scene">
+    <div class="scene-inner">
+      <div class="scene-mark"><span></span> The gap</div>
+      <blockquote>
+        Picture the senior engineer on your team with twenty years' experience. Right now they're <em>quietly avoiding Copilot</em> because the one time they tried it, the output was wrong. So they went back to doing things the way they always have.
+      </blockquote>
+      <div class="scene-followup">
+        <p>It isn't one thing. Copilot is crippled in their environment — locked down by IT, no Claude, no ChatGPT, features most users don't know exist. And nobody taught them how to work effectively with AI in the first place — when to use it, when not to, how to catch the confident-sounding wrong answer before it becomes a problem.</p>
+        <p>Multiply that by every senior person in your org and you have a pretty good picture of where most of the unrealized value is hiding.</p>
+      </div>
+      <div class="scene-tag">→ That gap is where I work.</div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="checklist">
+    <div class="checklist-inner">
+      <div class="section-mark"><span class="num">02</span><span class="line"></span> Reader check</div>
+      <h2 class="section-headline"><em>Is this</em> you?</h2>
+      <ul class="check-list">
+        <li>You run R&amp;D or engineering at a large regulated company.</li>
+        <li>Someone above you said "be AI fluent." <em>No one said how.</em></li>
+        <li>IT gave you Microsoft Copilot and… that was the whole AI strategy.</li>
+        <li>You can't <span class="mono">apt install</span> anything. You can't install anything at all, really.</li>
+        <li>You've watched your best engineers try Copilot once and quietly give up.</li>
+        <li>You're not against AI. You just don't have a credible way to <em>get your team productive with it.</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- OFFERINGS -->
+  <section class="offerings">
+    <div class="offerings-inner">
+      <div class="section-mark"><span class="num">03</span><span class="line"></span> What I offer</div>
+      <h2 class="section-headline">Two ways<br>to <em>work together.</em></h2>
+
+      <div class="offerings-grid">
+        <div class="offer-card">
+          <div class="offer-tag">1:1 Session</div>
+          <div class="offer-name">For directors and senior engineers.</div>
+          <div class="offer-desc">Build AI fluency or think through your own strategy. Live, one hour, billed by the session. No minimum commitment.</div>
+          <div class="offer-price">
+            <div class="offer-price-num">$250</div>
+            <div class="offer-price-unit">per hour</div>
+          </div>
+        </div>
+
+        <div class="offer-card">
+          <div class="offer-tag">Small-group cohort</div>
+          <div class="offer-name">For teams or peer groups.</div>
+          <div class="offer-desc">Live, two hours, typically four to eight people. Train your team, or learn alongside peers solving the same problems.</div>
+          <div class="offer-price">
+            <div class="offer-price-num">$150</div>
+            <div class="offer-price-unit">per person<br>per session</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="offerings-note">All sessions are live. Nothing is pre-recorded. You ask questions, we work through your actual problems, you leave with something you can use Monday.</p>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section class="topics">
+    <div class="topics-inner">
+      <div class="section-mark"><span class="num">04</span><span class="line"></span> What we cover</div>
+      <h2 class="section-headline">A working <em>curriculum.</em></h2>
+      <p class="topics-intro">Sessions are tailored to what your team actually needs. The landscape is moving, so this list is updated continuously.</p>
+
+      <div class="topics-grid">
+        <div class="topic-block">
+          <div class="topic-block-num">— I —</div>
+          <h3>Practical AI skills</h3>
+          <ul>
+            <li>What works today, what's hype, and how to tell the difference — with live side-by-side comparisons</li>
+            <li>AI-assisted technical writing in regulated environments, and where AI can hallucinate dangerously</li>
+            <li>AI for engineering leadership: synthesizing project status, spotting schedule risks, preparing for design reviews</li>
+          </ul>
+        </div>
+
+        <div class="topic-block">
+          <div class="topic-block-num">— II —</div>
+          <h3>The regulated product lifecycle</h3>
+          <ul>
+            <li>AI and IEC 62304: what's possible, what's permissible, what's coming</li>
+            <li>Accelerating DHF documentation without compromising compliance</li>
+            <li>AI for risk management (ISO 14971): hazard analysis, FMEA, and the new risks AI itself introduces</li>
+            <li>Evaluating AI/ML-enabled medical devices: SaMD classification, FDA guidance, strategic implications</li>
+          </ul>
+        </div>
+
+        <div class="topic-block">
+          <div class="topic-block-num">— III —</div>
+          <h3>Agentic AI for software teams</h3>
+          <div class="qualifier">For organizations with broader AI access than Copilot alone</div>
+          <ul>
+            <li>Using agentic AI to write, review, and refactor production code in regulated codebases</li>
+            <li>AI-generated backlog items: from user stories to acceptance criteria</li>
+            <li>BDD test automation with AI: generating and maintaining behavior-driven test suites</li>
+            <li>Building a complete application by prompting an AI agent — a multi-session, hands-on walkthrough</li>
+            <li>Rethinking the dev team: how agentic AI shifts the balance toward prompt engineering and code review</li>
+          </ul>
+        </div>
+
+        <div class="topic-block">
+          <div class="topic-block-num">— IV —</div>
+          <h3>Strategic AI leadership</h3>
+          <ul>
+            <li>Rolling out secure AI tools to your engineering team without creating a compliance nightmare</li>
+            <li>AI vendor evaluation: cutting through pitch decks and avoiding a six-month POC that goes nowhere</li>
+            <li>A capability maturity map of what works now, what's emerging, and what's still vaporware</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="about-inner">
+      <div>
+        <div class="about-label">— About</div>
+        <div class="about-name">Mike Luloh</div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-num">30</div>
+            <div class="about-stat-label">Years building safety-<br>critical medical device<br>software</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">62304</div>
+            <div class="about-stat-label">AAMI <br>voting member</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-bio">
+        <p>Thirty years building safety-critical medical device software. My work at Alcon includes <strong>real-time laser control</strong> for LASIK surgical instruments and <strong>novel methods for high-speed optical metrology of intraocular lenses</strong> — systems still in production use today.</p>
+        <p>I also serve as a voting member on the AAMI committee that maintains IEC 62304, the international standard for medical device software.</p>
+        <p>I've spent the last three years figuring out where AI actually fits in regulated product development, what the real risks are, and how to implement it without creating compliance exposure. That's what I teach.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <div class="cta-mark">— Get in touch</div>
+      <h2>Tell me what your team is actually trying to solve.</h2>
+      <p class="cta-text">Send a short note about your team and the problem you're working on. I'll respond within a day or two.</p>
+      <a href="mailto:mike@luloh.com" class="cta-button">mike@luloh.com →</a>
+      <div class="cta-or">no forms · no funnel · just a reply</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Mike Luloh</span>
+    <a href="https://linkedin.com/in/luloh">LinkedIn ↗</a>
+  </footer>
+
 </body>
 </html>
