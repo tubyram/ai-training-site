@@ -400,6 +400,25 @@
       line-height: 1.3;
     }
 
+    .offer-book {
+      display: inline-block;
+      margin-top: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .offer-book:hover {
+      color: var(--accent-warm);
+      border-color: var(--accent-warm);
+    }
+
     .offerings-note {
       margin-top: 56px;
       font-size: 17px;
@@ -753,6 +772,22 @@
       transform: translateY(-2px);
     }
 
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-button-secondary {
+      background: transparent;
+    }
+
+    .cta-button-secondary:hover {
+      background: var(--accent-warm);
+      border-color: var(--accent-warm);
+    }
+
     .cta-or {
       margin-top: 32px;
       font-family: 'Inter', system-ui, sans-serif;
@@ -858,6 +893,7 @@
             <div class="offer-price-num">$250</div>
             <div class="offer-price-unit">per hour</div>
           </div>
+          <a href="https://cal.com/luloh/1-1" target="_blank" rel="noopener" class="offer-book">book a session →</a>
         </div>
 
         <div class="offer-card">
@@ -868,6 +904,7 @@
             <div class="offer-price-num">$150</div>
             <div class="offer-price-unit">per person<br>per session</div>
           </div>
+          <a href="mailto:mike@luloh.com" class="offer-book">get in touch →</a>
         </div>
       </div>
 
@@ -975,8 +1012,12 @@
     <div class="cta-inner">
       <div class="cta-mark">— Get in touch</div>
       <h2>Tell me what your team is actually trying to solve.</h2>
-      <p class="cta-text">Send a short note about your team and the problem you're working on. I'll respond within a day or two.</p>
-      <a href="mailto:mike@luloh.com" class="cta-button">mike@luloh.com →</a>
+      <p class="cta-text">However works best for you. I'll respond within a day or two.</p>
+      <div class="cta-buttons">
+        <a href="https://cal.com/luloh/15min" target="_blank" rel="noopener" class="cta-button">book a 15-min call →</a>
+        <a href="https://cal.com/luloh/1-1" target="_blank" rel="noopener" class="cta-button">book a 1:1 session →</a>
+        <a href="mailto:mike@luloh.com" class="cta-button cta-button-secondary">mike@luloh.com →</a>
+      </div>
     </div>
   </section>
 
